@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.CalculatorController">
    <children>
       <Label layoutX="48.0" layoutY="10.0" text="Calculator">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <TextField alignment="BOTTOM_RIGHT" editable="false" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="120.0" text="0" />
+      <TextField fx:id="screen" alignment="BOTTOM_RIGHT" editable="false" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="120.0" text="0" />
       <Button layoutX="20.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="AC">
          <font>
             <Font size="14.0" />
@@ -23,52 +23,52 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Button layoutX="50.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="0">
+      <Button fx:id="btZero" layoutX="50.0" layoutY="200.0" mnemonicParsing="false" onAction="#onBtZeroAction" prefHeight="30.0" prefWidth="30.0" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="1">
+      <Button fx:id="btOne" layoutX="20.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBtOneAction" prefHeight="30.0" prefWidth="30.0" text="1">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="50.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="2">
+      <Button fx:id="btTwo" layoutX="50.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBtTwoAction" prefHeight="30.0" prefWidth="30.0" text="2">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="80.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="3">
+      <Button fx:id="btThree" layoutX="80.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBtThreeAction" prefHeight="30.0" prefWidth="30.0" text="3">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="4">
+      <Button fx:id="btFour" layoutX="20.0" layoutY="140.0" mnemonicParsing="false" onAction="#onBtFourAction" prefHeight="30.0" prefWidth="30.0" text="4">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="50.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="5">
+      <Button fx:id="btFive" layoutX="50.0" layoutY="140.0" mnemonicParsing="false" onAction="#onBtFiveAction" prefHeight="30.0" prefWidth="30.0" text="5">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="80.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="6">
+      <Button fx:id="btSix" layoutX="80.0" layoutY="140.0" mnemonicParsing="false" onAction="#onBtSixAction" prefHeight="30.0" prefWidth="30.0" text="6">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="110.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="7">
+      <Button fx:id="btSeven" layoutX="20.0" layoutY="110.0" mnemonicParsing="false" onAction="#onBtSevenAction" prefHeight="30.0" prefWidth="30.0" text="7">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="50.0" layoutY="110.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="8">
+      <Button fx:id="btEight" layoutX="50.0" layoutY="110.0" mnemonicParsing="false" onAction="#onBtEightAction" prefHeight="30.0" prefWidth="30.0" text="8">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="80.0" layoutY="110.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="9">
+      <Button fx:id="btNine" layoutX="80.0" layoutY="110.0" mnemonicParsing="false" onAction="#onBtNineAction" prefHeight="30.0" prefWidth="30.0" text="9">
          <font>
             <Font size="14.0" />
          </font>
