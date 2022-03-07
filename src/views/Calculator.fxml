@@ -13,12 +13,12 @@
             <Font size="14.0" />
          </font></Label>
       <TextField fx:id="screen" alignment="BOTTOM_RIGHT" editable="false" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="120.0" text="0" />
-      <Button layoutX="20.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="AC">
+      <Button fx:id="btAC" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" onAction="#onBtACAction" prefHeight="30.0" prefWidth="90.0" text="AC">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="110.0" layoutY="80.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="&lt;=">
+      <Button fx:id="btClear" layoutX="110.0" layoutY="80.0" mnemonicParsing="false" onAction="#onBtClearAction" prefHeight="30.0" prefWidth="30.0" text="&lt;=">
          <font>
             <Font size="10.0" />
          </font>

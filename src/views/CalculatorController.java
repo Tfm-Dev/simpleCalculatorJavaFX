@@ -28,53 +28,78 @@ public class CalculatorController {
     private Button btEight;
     @FXML
     private Button btNine;
+    @FXML
+    private Button btAC;
+    @FXML
+    private Button btClear;
 
+    @FXML
     public void onBtZeroAction() {
         if (screen.getLength() > 0 && screen.getText().charAt(0) != '0') screen.setText(screen.getText() + '0');
     }
 
+    @FXML
     public void onBtOneAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("1");
         else screen.setText(screen.getText() + "1");
     }
 
+    @FXML
     public void onBtTwoAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("2");
         else screen.setText(screen.getText() + "2");
     }
 
+    @FXML
     public void onBtThreeAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("3");
         else screen.setText(screen.getText() + "3");
     }
 
+    @FXML
     public void onBtFourAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("4");
         else screen.setText(screen.getText() + "4");
     }
 
+    @FXML
     public void onBtFiveAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("5");
         else screen.setText(screen.getText() + "5");
     }
 
+    @FXML
     public void onBtSixAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("6");
         else screen.setText(screen.getText() + "6");
     }
 
+    @FXML
     public void onBtSevenAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("7");
         else screen.setText(screen.getText() + "7");
     }
 
+    @FXML
     public void onBtEightAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("8");
         else screen.setText(screen.getText() + "8");
     }
 
+    @FXML
     public void onBtNineAction() {
         if (screen.getLength() == 1 && screen.getText().equals("0")) screen.setText("9");
         else screen.setText(screen.getText() + "9");
+    }
+
+    @FXML
+    public void onBtACAction() {
+        screen.setText("0");
+    }
+
+    @FXML
+    public void onBtClearAction() {
+        if(screen.getLength() > 1) screen.setText(screen.getText().substring(0, screen.getLength() - 1));
+        else screen.setText("0");
     }
 }
