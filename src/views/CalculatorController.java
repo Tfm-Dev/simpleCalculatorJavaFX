@@ -32,10 +32,13 @@ public class CalculatorController {
     private Button btAC;
     @FXML
     private Button btClear;
+    @FXML
+    private Button btDot;
 
     @FXML
     public void onBtZeroAction() {
         if (screen.getLength() > 0 && screen.getText().charAt(0) != '0') screen.setText(screen.getText() + '0');
+        else if (screen.getLength() >= 2 && screen.getText().substring(0, 2).equals("0.")) screen.setText(screen.getText() + '0');
     }
 
     @FXML
@@ -101,5 +104,9 @@ public class CalculatorController {
     public void onBtClearAction() {
         if(screen.getLength() > 1) screen.setText(screen.getText().substring(0, screen.getLength() - 1));
         else screen.setText("0");
+    }
+
+    public void onBtDotAction() {
+        if (screen.getText().indexOf('.') == -1 && screen.getLength() > 0) screen.setText(screen.getText() + ".");
     }
 }
