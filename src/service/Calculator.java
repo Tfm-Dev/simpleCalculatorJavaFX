@@ -10,4 +10,7 @@ public class Calculator {
     public static double multiplication(double one, double two) {
         return one * two;
     }
+    public static double division(double one, double two) {
+        return one / two;
+    }
 }

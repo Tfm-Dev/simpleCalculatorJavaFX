@@ -98,7 +98,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="110.0" layoutY="110.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="/">
+      <Button fx:id="btDivision" layoutX="110.0" layoutY="110.0" mnemonicParsing="false" onAction="#onBtDivisionAction" prefHeight="30.0" prefWidth="30.0" text="/">
          <font>
             <Font size="14.0" />
          </font>
