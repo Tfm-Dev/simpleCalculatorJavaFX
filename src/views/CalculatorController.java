@@ -41,6 +41,8 @@ public class CalculatorController {
     private Button btSum;
     @FXML
     private Button btSubtratiction;
+    @FXML
+    private Button btMultiplication;
 
     @FXML
     private Button btResult;
@@ -143,6 +145,15 @@ public class CalculatorController {
     }
 
     @FXML
+    public void onBtMultiplicationAction() {
+        if (action == null) {
+            action = "*";
+            result = Double.parseDouble(screen.getText());
+            screen.setText("0");
+        }
+    }
+
+    @FXML
     public void onBtResultAction() {
         Locale.setDefault(Locale.US);
         switch (action) {
@@ -152,6 +163,10 @@ public class CalculatorController {
                 break;
             case "-":
                 result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
+                action = null;
+                break;
+            case "*":
+                result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
                 action = null;
                 break;
             default:

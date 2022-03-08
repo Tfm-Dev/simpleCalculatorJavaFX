@@ -7,4 +7,7 @@ public class Calculator {
     public static double subtraction(double one, double two) {
         return one - two;
     }
+    public static double multiplication(double one, double two) {
+        return one * two;
+    }
 }
