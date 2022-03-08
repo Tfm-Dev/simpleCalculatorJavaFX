@@ -78,7 +78,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="=">
+      <Button fx:id="btResult" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#onBtResultAction" prefHeight="30.0" prefWidth="30.0" text="=">
          <font>
             <Font size="14.0" />
          </font>
@@ -88,7 +88,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="110.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="+">
+      <Button fx:id="btSum" layoutX="110.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBtSumAction" prefHeight="30.0" prefWidth="30.0" text="+">
          <font>
             <Font size="14.0" />
          </font>

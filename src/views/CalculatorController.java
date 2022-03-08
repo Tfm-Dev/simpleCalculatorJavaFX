@@ -1,8 +1,11 @@
 package views;
 
+import java.util.Locale;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import service.Calculator;
 
 public class CalculatorController {
 
@@ -34,6 +37,14 @@ public class CalculatorController {
     private Button btClear;
     @FXML
     private Button btDot;
+    @FXML
+    private Button btSum;
+
+    @FXML
+    private Button btResult;
+
+    private double result;
+    private String action;
 
     @FXML
     public void onBtZeroAction() {
@@ -106,7 +117,31 @@ public class CalculatorController {
         else screen.setText("0");
     }
 
+    @FXML
     public void onBtDotAction() {
         if (screen.getText().indexOf('.') == -1 && screen.getLength() > 0) screen.setText(screen.getText() + ".");
+    }
+
+    @FXML
+    public void onBtSumAction() {
+        if (action == null) {
+            action = "+";
+            result = Double.parseDouble(screen.getText());
+            screen.setText("0");
+        }
+    }
+
+    public void onBtResultAction() {
+        Locale.setDefault(Locale.US);
+        switch (action) {
+            case "+":
+                result = Calculator.sum(result, Double.parseDouble(screen.getText()));
+                action = null;
+                break;
+            default:
+                result = 0.0;
+                break;
+        }
+        screen.setText(String.format("%.2f", result));
     }
 }
