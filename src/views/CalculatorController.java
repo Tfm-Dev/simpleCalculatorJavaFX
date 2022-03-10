@@ -1,16 +1,20 @@
 package views;
 
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
+import entities.Operations;
 import exception.CalculatorException;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import service.Calculator;
 import util.Alerts;
+import util.Constraints;
 
-public class CalculatorController {
+public class CalculatorController implements Initializable {
 
     @FXML
     private TextField screen;
@@ -51,8 +55,14 @@ public class CalculatorController {
     @FXML
     private Button btResult;
 
-    private double result;
-    private String action;
+    private Operations operations;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) { 
+        operations = new Operations();
+        Constraints.setTextFieldDouble(screen);
+        Constraints.setTextFieldMaxLength(screen, 16);
+    }
 
     @FXML
     public void onBtZeroAction() {
@@ -116,8 +126,7 @@ public class CalculatorController {
 
     @FXML
     public void onBtACAction() {
-        action = null;
-        result = 0;
+        operations = new Operations();
         screen.setText("0");
     }
 
@@ -134,142 +143,65 @@ public class CalculatorController {
 
     @FXML
     public void onBtSumAction() {
-        if (action == null) {
-            result = Double.parseDouble(screen.getText());
-        } else {
-            try {
-                switch (action) {
-                    case "+":
-                        result = Calculator.sum(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "-":
-                        result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "*":
-                        result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "/":
-                        result = Calculator.division(result, Double.parseDouble(screen.getText()));
-                        break;
-                }
-            } catch (CalculatorException e) {
-                Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
-            }
+        try {
+            operations.operation(Double.parseDouble(screen.getText()), "+");
+        } catch (NumberFormatException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
+        } catch (CalculatorException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
         }
-        action = "+";
         screen.setText("0");
     }
 
     @FXML
     public void onBtSubtractionAction() {
-        if (action == null) {
-            result = Double.parseDouble(screen.getText());
-        } else {
-            try {
-                switch (action) {
-                    case "+":
-                        result = Calculator.sum(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "-":
-                        result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "*":
-                        result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "/":
-                        result = Calculator.division(result, Double.parseDouble(screen.getText()));
-                        break;
-                }
-            } catch (CalculatorException e) {
-                Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
-            }
+        try {
+            operations.operation(Double.parseDouble(screen.getText()), "-");
+        } catch (NumberFormatException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
+        } catch (CalculatorException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
         }
-        action = "-";
         screen.setText("0");
     }
 
     @FXML
     public void onBtMultiplicationAction() {
-        if (action == null) {
-            result = Double.parseDouble(screen.getText());
-        } else {
-            try {
-                switch (action) {
-                    case "+":
-                        result = Calculator.sum(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "-":
-                        result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "*":
-                        result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "/":
-                        result = Calculator.division(result, Double.parseDouble(screen.getText()));
-                        break;
-                }
-            } catch (CalculatorException e) {
-                Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
-            }
+        try {
+            operations.operation(Double.parseDouble(screen.getText()), "*");
+        } catch (NumberFormatException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
+        } catch (CalculatorException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
         }
-        action = "*";
         screen.setText("0");
     }
 
     @FXML
     public void onBtDivisionAction() {
-        if (action == null) {
-            result = Double.parseDouble(screen.getText());
-        } else {
-            try {
-                switch (action) {
-                    case "+":
-                        result = Calculator.sum(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "-":
-                        result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "*":
-                        result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "/":
-                        result = Calculator.division(result, Double.parseDouble(screen.getText()));
-                        break;
-                }
-            } catch (CalculatorException e) {
-                Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
-            }
+        try {
+            operations.operation(Double.parseDouble(screen.getText()), "/");
+        } catch (NumberFormatException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
+        } catch (CalculatorException e) {
+            Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
         }
-        action = "/";
         screen.setText("0");
     }
 
     @FXML
     public void onBtResultAction() {
         Locale.setDefault(Locale.US);
-        if (action != null) {
+        if (operations.getAction() != null) {
             try {
-                switch (action) {
-                    case "+":
-                        result = Calculator.sum(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "-":
-                        result = Calculator.subtraction(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "*":
-                        result = Calculator.multiplication(result, Double.parseDouble(screen.getText()));
-                        break;
-                    case "/":
-                        result = Calculator.division(result, Double.parseDouble(screen.getText()));
-                        break;
-                }
+                operations.calculator(Double.parseDouble(screen.getText()));
+            } catch (NumberFormatException e) {
+                Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
             } catch (CalculatorException e) {
                 Alerts.showAlert("Error", null, e.getMessage(), AlertType.ERROR);
             }
-        } else {
-            result = 0;
         }
-        action = null;
-        screen.setText(String.format("%.2f", result));
+        operations.setAction(null);
+        screen.setText(String.format("%.2f", operations.getScreen()));
     }
 }

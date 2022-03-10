@@ -12,7 +12,7 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <TextField fx:id="screen" alignment="BOTTOM_RIGHT" editable="false" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="120.0" text="0" />
+      <TextField fx:id="screen" alignment="BOTTOM_RIGHT" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="120.0" text="0" />
       <Button fx:id="btAC" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" onAction="#onBtACAction" prefHeight="30.0" prefWidth="90.0" text="AC">
          <font>
             <Font size="14.0" />
